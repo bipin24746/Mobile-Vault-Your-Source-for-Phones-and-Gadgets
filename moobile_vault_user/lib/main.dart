@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moobile_vault_user/pages/home_page.dart';
 import 'package:moobile_vault_user/pages/login_page.dart';
 import 'package:moobile_vault_user/pages/register_page.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegisterPage(),
+      home: HomePage(),
     );
   }
 }
