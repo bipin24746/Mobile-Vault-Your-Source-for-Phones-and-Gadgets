@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,22 +21,35 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'welcome',
+              'Create Your Account',
               style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue),
             ),
-            const SizedBox(height: 20),
+            SizedBox(
+              height: 20,
+            ),
             TextField(
-              keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
                   prefixIcon: const Icon(Icons.phone_android),
-                  labelText: 'Mobile Number',
-                  hintText: 'Enter Your Mobile Number'),
+                  label: Text('Your Name'),
+                  hintText: 'Enter your name'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextField(
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  prefixIcon: Icon(Icons.phone_android),
+                  label: Text('Mobile Number'),
+                  hintText: 'Mobile Number'),
             ),
             SizedBox(
               height: 20,
@@ -46,13 +59,8 @@ class _LoginPageState extends State<LoginPage> {
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.blue),
-                child: Text('Login')),
-            TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Register new account',
-                  style: TextStyle(color: Colors.blue),
-                ))
+                child: Text('Register')),
+            TextButton(onPressed: () {}, child: Text('Login'))
           ],
         ),
       ),
