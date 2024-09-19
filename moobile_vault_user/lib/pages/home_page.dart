@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:moobile_vault_user/pages/widgets/drop_down_btn.dart';
+import 'package:moobile_vault_user/pages/widgets/drop_down.dart';
+import 'package:moobile_vault_user/pages/widgets/multi_select_drop_down.dart';
+import 'package:moobile_vault_user/pages/widgets/product_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -38,7 +40,38 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          DropDownBtn()
+          Row(
+            children: [
+              Expanded(
+                child: DropDownBtn(
+                  items: ['Rs: Low to High', 'Rs: High to Low'],
+                  selectedItemText: 'Sort',
+                  onSelected: (selected) {},
+                ),
+              ),
+              Expanded(
+                child: MultiSelectDropDown(
+                    items: ['item1', 'item2', 'item3'],
+                    onSelectionChanged: (selectedItems) {}),
+              ),
+            ],
+          ),
+          Expanded(
+            child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.8,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8),
+                itemBuilder: (context, index) {
+                  return ProductCard(
+                      name: 'Samsung Galaxi j7',
+                      imageUrl:
+                          'https://th.bing.com/th/id/OIP.096zwC7tmk5AL7O2v90rXwHaIq?w=130&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                      price: 200,
+                      offerTag: '20% off',onTap:() {});
+                }),
+          )
         ],
       ),
     );
