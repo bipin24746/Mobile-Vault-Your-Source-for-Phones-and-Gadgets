@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:moobile_vault_user/pages/widgets/drop_down.dart';
-import 'package:moobile_vault_user/pages/widgets/multi_select_drop_down.dart';
-import 'package:moobile_vault_user/pages/widgets/product_card.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
+
+import '../widgets/drop_down.dart';
+import '../widgets/multi_select_drop_down.dart';
+import '../widgets/product_card.dart';
+import '../product_description_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,11 +67,19 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSpacing: 8),
                 itemBuilder: (context, index) {
                   return ProductCard(
-                      name: 'Samsung Galaxi j7',
+                      name: 'Samsung Galaxy J7',
                       imageUrl:
                           'https://th.bing.com/th/id/OIP.096zwC7tmk5AL7O2v90rXwHaIq?w=130&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
                       price: 200,
-                      offerTag: '20% off',onTap:() {});
+                      offerTag: '20% off',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const ProductDescriptionPage()),
+                        );
+                      });
                 }),
           )
         ],

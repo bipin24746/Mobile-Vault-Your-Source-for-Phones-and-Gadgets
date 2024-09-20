@@ -5,19 +5,21 @@ class ProductCard extends StatelessWidget {
   final String imageUrl;
   final double price;
   final String offerTag;
-  const ProductCard(
-      {super.key,
-      required this.name,
-      required this.imageUrl,
-      required this.price,
-      required this.offerTag, required Null Function() onTap});
+  final VoidCallback onTap; // Add the onTap function
+
+  const ProductCard({
+    super.key,
+    required this.name,
+    required this.imageUrl,
+    required this.price,
+    required this.offerTag,
+    required this.onTap, // Ensure onTap is required
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-   
-      },
+      onTap: onTap, // Trigger onTap when the card is tapped
       child: Card(
         elevation: 2,
         child: Padding(
@@ -31,32 +33,27 @@ class ProductCard extends StatelessWidget {
                 width: double.maxFinite,
                 height: 120,
               ),
-              SizedBox(
-                height: 2,
-              ),
+              const SizedBox(height: 2),
               Text(
                 name,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
                 overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(
-                height: 2,
-              ),
+              const SizedBox(height: 2),
               Text(
                 'Rs: $price',
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(
-                height: 4,
-              ),
+              const SizedBox(height: 4),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(4)),
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(4),
+                ),
                 child: Text(offerTag),
-              )
+              ),
             ],
           ),
         ),
